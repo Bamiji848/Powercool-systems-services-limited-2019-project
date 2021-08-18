@@ -1,0 +1,205 @@
+{% extends 'powercool_app/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>
+		{% block title %}
+		About
+		{% endblock %}
+	</title>
+
+</head>
+{% block content %}
+
+<body>
+
+
+	<main id="main">
+
+		<!-- ======= Breadcrumbs ======= -->
+		<section id="breadcrumbs" class="breadcrumbs">
+			<div class="container">
+
+				<div class="d-flex justify-content-between align-items-center">
+					<h2>About</h2>
+					<ol>
+						<li><a href="{% url 'index' %}">Home</a></li>
+						<li>About</li>
+					</ol>
+				</div>
+
+			</div>
+		</section><!-- End Breadcrumbs -->
+
+		<!-- ======= About Us Section ======= -->
+		<section id="about-us" class="about-us">
+			<div class="container" data-aos="fade-up">
+				{% if about %}
+				{% for ab in about %}
+				<div class="row content card">
+					<div class="col-lg-12 bg-light card-body text-info" data-aos="fade-right">
+						<h4 class="bg-dark p-2 text-light">{{ ab.directors_title }}</h4>
+						<hr>
+						<p>
+							{{ ab.directors_contentp1 }}
+						</p>
+						<hr>
+						<ul>
+							<li><i class="ri-check-double-line"></i> {{ ab.directors_contentp2 }}</li>
+
+							<li><i class="ri-check-double-line"></i> {{ ab.directors_contentp3 }}</li>
+							<hr>
+							<li><img src="{{ab.directors_signature.url}}" alt=""></li>
+						</ul>
+						<p class="font-italic text-info">
+							{{ ab.directors_name }}
+						</p>
+						<h6 style="color: black;font-style: italic;"> Managing Director</h6>
+					</div>
+					{% endfor %}
+					{% endif %}
+				</div>
+			</div>
+		</section><!-- End About Us Section -->
+
+		<!-- ======= Our Team Section ======= -->
+		<section id="team" class="team section-bg">
+			<div class="container">
+
+				<div class="section-title" data-aos="fade-up">
+					<h2>Our <strong>Team</strong></h2>
+					<p></p>
+				</div>
+
+				<div class="row">
+					{% if team %}
+					{% for t in team %}
+					<div class="col-lg-6 col-md-6 d-flex align-items-stretch mb-2">
+						<div class="member" data-aos="fade-up">
+							<div class="member-img">
+								<img src="{{t.picture.url}}" class="img-fluid" alt="{{ t.name }}">
+								<div class="social">
+									<a href=""><i class="icofont-twitter"></i></a>
+									<a href=""><i class="icofont-facebook"></i></a>
+									<a href=""><i class="icofont-instagram"></i></a>
+									<a href=""><i class="icofont-linkedin"></i></a>
+								</div>
+							</div>
+							<div class="member-info">
+								<h4>{{ t.name }}</h4>
+								<span>{{ t.job_title }}</span>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					{% endif %}
+				</div>
+
+			</div>
+		</section><!-- End Our Team Section -->
+
+		<!-- ======= Our Skills Section ======= -->
+		<section id="skills" class="skills">
+			<div class="container">
+
+				<div class="section-title" data-aos="fade-up">
+					<h2>Our <strong>Skills</strong></h2>
+				</div>
+
+				<div class="row skills-content">
+
+					<div class="col-lg-6" data-aos="fade-up">
+
+						<div class="progress">
+							<h6 class="skill">Technicality <i class="val">100%</i></h6>
+							<div class="progress-bar-wrap">
+								<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+									aria-valuemax="100"></div>
+							</div>
+						</div>
+
+						<div class="progress">
+							<h6 class="skill">Professionalism <i class="val">90%</i></h6>
+							<div class="progress-bar-wrap">
+								<div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+									aria-valuemax="100"></div>
+							</div>
+						</div>
+
+						<div class="progress">
+							<h6 class="skill">Response to complaints <i class="val">75%</i></h6>
+							<div class="progress-bar-wrap">
+								<div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+									aria-valuemax="100"></div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+
+						<div class="progress">
+							<h6 class="skill">Problem-solving <i class="val">100%</i></h6>
+							<div class="progress-bar-wrap">
+								<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+									aria-valuemax="100"></div>
+							</div>
+						</div>
+
+						<div class="progress">
+							<h6 class="skill">Customer Satisfaction <i class="val">100%</i></h6>
+							<div class="progress-bar-wrap">
+								<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+									aria-valuemax="100"></div>
+							</div>
+						</div>
+
+						<div class="progress">
+							<h6 class="skill pb-2">Efficiency <i class="val">99%</i></h6>
+							<div class="progress-bar-wrap">
+								<div class="progress-bar" role="progressbar" aria-valuenow="99" aria-valuemin="0"
+									aria-valuemax="100"></div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</section><!-- End Our Skills Section -->
+
+		<!-- ======= Our Clients Section ======= -->
+		<section id="clients" class="clients">
+			<div class="container" data-aos="fade-up">
+
+				<div class="section-title">
+					<h2>Clients</h2>
+				</div>
+
+				<div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">
+					{% if clients %}
+					{% for c in clients %}
+					<div class="col-lg-3 col-md-4 col-6">
+						<div class="client-logo">
+							<img src="{{ c.client_logo.url }}" class="img-fluid" alt="">
+						</div>
+					</div>
+					{% endfor %}
+					{% endif %}
+
+				</div>
+
+			</div>
+		</section><!-- End Our Clients Section -->
+
+	</main><!-- End #main -->
+
+
+
+</body>
+{% endblock %}
+
+</html>

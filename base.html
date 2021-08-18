@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>
+    {% block title %}
+    {% endblock %}
+  </title>
+  <meta content="powercool systems services limited for  power installation cooling precision data center"
+    name="description">
+  <meta
+    content="partners,vertiv,gamatronics,canovate,apc,expert,cooling,best,liebert,quality,powercool,limited,systems,services,precision,data center,projects,our,our projects,in,power,inverter,solar,UPS,dehumidifiers,panel,cabling,stucture,cable,structuring,supply,bussiness partners,bussiness,clients,our clients,years,akingbemisilu,olusola,resourcery,blog,our blog,contact,about,products,our team,team,who we are,What we do,home,contact us,ligali,ayorinde,value,for,money,value for money,dedicated, solutuion,provide,providing,vision,mission,value,goal,installation,panel,domestic,industrial, Control, Distribute, Transfer, Monitor, Measure, Manage, Service, and, Communicate ,with Power, Cooling and information technology equipment, We, have, no, doubt, that we shall, be, able to add lots of value ,to your ,operations, and deliver beyond expectation,Powercool clients, include the prominent IT firm, Resourcery Plc, the fast growing JAIZ bank, Dimension data, the elegant National Identity Management Commission, the Central Bank of Liberia, NPDC Sapele Benin,-a subsidiary of the Nigerian National Petroleum Commission (NNPC), and the Supreme Court of Nigeria, Abuja among many others,Powercool also manage, a ,growing pool, of clients, with, domestic projects, ranging from ,procurement, installation/repair, to maintenance,We have been continually active in the, industry, for several years, delivering standard, products and services, to our clients,EXISTS, IN, ORDER, TO, BRIDGE, THE, GAP, IN NIGERIA, AND ALL OVER, AFRICA,We are committed, to providing efficient, and, environment, friendly, cooling, and, power, solutions to, every, of, our clients. We also, promote, excellent, maintenance, culture, here in Africa, and, all, over, the, world, excellent enginneers, to install, maintain and service power and cooling equipment, excellent enginneers to install, maintain and service power and cooling equipment,inverter,inverters,LIEBERT,MGE,SANTAK,ARTRONIC,SOLAR EDGE,UPS Batteries,Surge Suppressors,Lightning Arrestors,Precision Power Centers, Magnetic Synthesizers,Mains Monitoring,Control Panels,Distribution Transformers, and, overhead,lines,construction,Fire rated partitioning,Fire rated wall cladding,Fire rated false ceiling,Raised flooring system,Access control for Door,Precision, packaged air conditioning system, capable of controlling temperature, humidity,dust levels, both indoor, HPM, PDX, INROW,outdoor, HRC, High Performance Precision Air Conditioner for Data Center,Domestic Air Condition,LG, PANASONIC, SAMSUNG, MEDIA, HAIER THERMOCOL, SPLIT UNIT,PACKAGE UNIT,office,residential,use,Automatic, Fire,Defense, System, based, on, FM 200,FM 200 Gas,BTS, Alarm,Equipment, Status, Monitoring,System,Data,Center,Environmental,Monitoring,DC,Power Systems,Solar,Consultancy,ad-hoc,services,Liebert HPM, PDX, IN-ROW, Air-conditioner,Data-Mate,precision,air-conditioner,Structured,Cabling for Power,Provision of Clean, Earthen,System,Supply and,installation of, Liebert Precision, cooling Supply, and installation, of ,AVR, Installation of UPS,Installation, of, Power Panel( LV),solar-edge,ortea,emerson,news,latest,blog,Lagos,idi-iroko,Lagos road,contact,information,Ikorodu"
+    name="keywords">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'powercool_app/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'powercool_app/assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'powercool_app/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'powercool_app/assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'powercool_app/assets/vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'powercool_app/assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'powercool_app/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'powercool_app/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'powercool_app/assets/css/style.css' %}" rel="stylesheet">
+
+  <script data-ad-client="ca-pub-3419372923726798" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo mr-auto"><a href="{% url 'index' %}" title="powercool"><span><img
+              src="{% static 'powercool_app/assets/img/logo.png' %}" alt="logo image" class="img-fluid"><span
+              style="color:red;">Power</span></span><span style="color:navy;">Cool</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="{% url 'index' %}" class="logo mr-auto" title="powercool logo"></a> -->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{% url 'index' %}" title="click to go to homepage">Home</a></li>
+
+          <li class="drop-down"><a href="" title="who we are">About</a>
+            <ul>
+              <li><a href="{% url 'about' %}" title="who we are">About Us</a></li>
+              <li><a href="{% url 'team' %}" title="our core team">Team</a></li>
+
+            </ul>
+          </li>
+          <li class="drop-down"><a href="" title="buy">Buy</a>
+            <ul>
+              {% for c in categories %}
+              <li><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+
+          <li><a href="{% url 'services' %}" title="what we do">Services</a></li>
+          <li><a href="{% url 'products' %}" title="the products we use">Product</a></li>
+
+          <li><a href="{% url 'blog' %}" title="our blog">Blog</a></li>
+          <li><a href="{% url 'contact' %}" title="contact us">Contact</a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  {% block content %}
+
+  {% endblock %}
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Powercool Systems Services Limited</h3>
+            <p>
+              241, Lagos Road,<br>
+              Idiroko bus stop, Ikorodu,<br>
+              Lagos, Nigeria <br><br>
+              <strong>Phone:</strong> +234-8091-111-346<br>
+              <strong>Email:</strong> helpdesk@powercoolsystemsltd.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'index' %}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about' %}">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'services' %}">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i><a href="{% url 'services' %}" title="power conditioning link"
+                  class="d-block">Power Conditioning and Control
+                  System(Sales,installation,Repair/Maintenance)</a></li>
+              <li><i class="bx bx-chevron-right"></i><a href="{% url 'services' %}" title="structured cabling link"
+                  class="d-block">Structured Cabling for Power and Provision of Clean Earthen
+                  System</a></li>
+              <li><i class="bx bx-chevron-right"></i><a href="{% url 'services' %}"
+                  title="computer suite preparation link" class="d-block">Computer Suite Preparation (Environment
+                  Conditioning)</a></li>
+              <li><i class="bx bx-chevron-right"></i><a href="{% url 'services' %}"
+                  title="automatic fire defense system link" class="d-block">Automatic Fire Defense System based on FM
+                  200 Gas</a></li>
+              <li><i class="bx bx-chevron-right"></i><a href="{% url 'services' %}"
+                  title="BTS alarm and equipment monitoring link" class="d-block">BTS Alarm/Equipment Status Monitoring
+                  System</a></li>
+              <li><i class="bx bx-chevron-right"></i><a href="{% url 'services' %}"
+                  title="data center environment monitoring system link" class="d-block">Data Center Environmental
+                  Monitoring System</a>
+              </li>
+              <li><i class="bx bx-chevron-right"></i><a href="{% url 'services' %}" title="DC power systems link"
+                  class="d-block">DC Power Systems</a></li>
+              <li><i class="bx bx-chevron-right"></i><a href="{% url 'services' %}" title="solar power link"
+                  class="d-block">Solar
+                  Power</a></li>
+              <li><i class="bx bx-chevron-right"></i><a href="{% url 'services' %}"
+                  title="consultancy and ad-hoc services link" class="d-block">Consultancy and ad-hoc services</a></li>
+              <li><i class="bx bx-chevron-right"></i><a href="{% url 'services' %}"
+                  title="precision cooling for data center and general cooling link" class="d-block">Precision cooling
+                  for Data Center and general
+                  cooling</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Business Hours</h2>
+              <div class="opening-hours">
+                <h4>Opening Days:</h4>
+                <p class="pl-3">
+                  <span>Monday – Friday : 8am to 5pm</span>
+                </p>
+                <h4>Vacations:</h4>
+                <p class="pl-3">
+                  <span>All Sundays</span><br>
+                  <span>All Official Holidays</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Powercool Systems Services Limited</span></strong>. All Rights Reserved
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="https://twitter.com/powercoolsys" title="powercool twitter link" class="twitter"><i
+            class="bx bxl-twitter"></i></a>
+        <a href="https://www.facebook.com/powercoolsys/" title="powercool facebook link" class="facebook"><i
+            class="bx bxl-facebook"></i></a>
+        <a href="https://instagram.com/powercoolsystemsltd" title="powercool instagram link" class="instagram"><i
+            class="bx bxl-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/powercoolsys/" title="powercool linkedin link" class="linkedin"><i
+            class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'powercool_app/assets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'powercool_app/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'powercool_app/assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'powercool_app/assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'powercool_app/assets/vendor/jquery-sticky/jquery.sticky.js' %}"></script>
+  <script src="{% static 'powercool_app/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'powercool_app/assets/vendor/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'powercool_app/assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'powercool_app/assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'powercool_app/assets/vendor/aos/aos.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'powercool_app/assets/js/main.js' %}"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{% static 'powercool_app/js/google-map.js' %}"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "WebSite",
+  "name": "powercool systems services limited",
+  "url": "https://www.powercoolsystemsltd.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.powercoolsystemsltd.com/{search_term_string}Powercool is a power solution and Computer environment conditioning firm with vast experience and expertise in its chosen area of specialization. We have factory trained Engineers on our management team.  We Control, Distribute, Transfer, Monitor, Measure, Manage, Service and Communicate with Power, Cooling and information technology equipment. We have no doubt that we shall be able to add lots of value to your operations and deliver beyond expectation.",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173919139-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-173919139-1');
+  </script>
+</body>
+
+</html>

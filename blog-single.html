@@ -1,0 +1,207 @@
+{% extends 'powercool_app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+
+<head>
+  <title>
+    {% block title %}
+    Blog
+    {% endblock %}
+  </title>
+</head>
+{% block content %}
+
+<body>
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Blog</h2>
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'blog' %}">Blog</a></li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+            {% if blog_key %}
+            <article class="entry entry-single" data-aos="fade-up">
+
+              <div class="entry-img">
+                <img src="{{ blog_key.blog_img.url }}" alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="">{{ blog_key.blog_title }}</a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="">
+                      {{ blog_key.poster}}</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href=""><time
+                        datetime="{{ blog_key.upload_date }}">{{ blog_key.upload_date }}</time></a></li>
+
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                <blockquote>
+                  <i class="icofont-quote-left quote-left"></i>
+                  <p>
+                    {{ blog_key.content }}
+                  </p>
+                  <i class="las la-quote-right quote-right"></i>
+                  <i class="icofont-quote-right quote-right"></i>
+                </blockquote>
+
+
+                <img src="{{ blog_key.blog_img.url }}" class="img-fluid" alt="">
+
+
+              </div>
+
+              <div class="entry-footer clearfix">
+                <div class="float-left">
+                  <i class="icofont-folder"></i>
+                  <ul class="cats">
+                    <li><a href="#">Business</a></li>
+                  </ul>
+
+                  <i class="icofont-tags"></i>
+                  <ul class="tags">
+                    <li><a href="#">Health</a></li>
+                    <li><a href="#">Tech</a></li>
+                    <li><a href="#"></a></li>
+                  </ul>
+                </div>
+
+                <div class="float-right share">
+                  <a href="https://twitter.com/powercoolsys" title="Share on Twitter"><i
+                      class="icofont-twitter"></i></a>
+                  <a href="https://www.facebook.com/powercoolsys/" title="Share on Facebook"><i
+                      class="icofont-facebook"></i></a>
+                  <a href="https://www.linkedin.com/company/powercoolsys/" title="Share on LinkedIn"><i
+                      class="icofont-linkedin"></i></a>
+                </div>
+
+              </div>
+
+            </article><!-- End blog entry -->
+
+            <div class="blog-author clearfix" data-aos="fade-up">
+              <img src="assets/img/blog-author.jpg" class="rounded-circle float-left" alt="">
+              <h4>{{ blog_key.poster }}</h4>
+              <div class="social-links">
+                <a href="https://twitter.com/powercoolsys"><i class="icofont-twitter"></i></a>
+                <a href="https://www.facebook.com/powercoolsys/"><i class="icofont-facebook"></i></a>
+                <a href="https://www.linkedin.com/company/powercoolsys/"><i class="icofont-linkedin"></i></a>
+              </div>
+
+            </div><!-- End blog author bio -->
+            {% endif %}
+            <div class="blog-comments" data-aos="fade-up">
+
+              <h4 class="comments-count">{{ comments.count }} Comments</h4>
+              {% for comment in comments %}
+              <div id="comment-1" class="comment clearfix">
+                <img src="assets/img/comments-1.jpg" class="comment-img  float-left" alt="">
+                <h5><a href="">{{ comment.name }}</a> <a href="#" class="reply"><i class="icofont-reply"></i> Reply</a>
+                </h5>
+                <time datetime="{{ comment.created_on }}">{{ comment.created_on }}</time>
+                <p>
+                  {{ comment.body | linebreaks }}
+                </p>
+
+              </div><!-- End comment #1 -->
+              {% endfor %}
+              <div class="card-body">
+                {% if new_comment %}
+                <div class="alert alert-success" role="alert">
+                  Your comment is awaiting moderation
+                </div>
+                {% else %}
+                <div class="reply-form">
+                  <h4>Leave a Reply</h4>
+                  <p>Your email address will not be published. Required fields are marked * </p>
+                  <form method="POST">
+                    {{ comment_form| crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Post Comment</button>
+
+                  </form>
+                  {% endif %}
+                </div>
+
+              </div><!-- End blog comments -->
+
+            </div><!-- End blog entries list -->
+          </div>
+          <div class="col-lg-4">
+
+            <div class="sidebar" data-aos="fade-left">
+
+              <h3 class="sidebar-title">Search</h3>
+              <div class="sidebar-item search-form">
+                <form action="">
+                  <input type="text">
+                  <button type="submit"><i class="icofont-search"></i></button>
+                </form>
+
+              </div><!-- End sidebar search formn-->
+
+              <h3 class="sidebar-title">Categories</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="#"> <span></span></a></li>
+
+                </ul>
+
+              </div><!-- End sidebar categories-->
+
+              <h3 class="sidebar-title">Recent Posts</h3>
+              <div class="sidebar-item recent-posts">
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog-recent-posts-1.jpg" alt="">
+                  <h4><a href="blog-single.html"></a></h4>
+                  <time datetime=""></time>
+                </div>
+              </div><!-- End sidebar recent posts-->
+
+              <h3 class="sidebar-title">Tags</h3>
+              <div class="sidebar-item tags">
+                <ul>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+
+                </ul>
+
+              </div><!-- End sidebar tags-->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+</body>
+{% endblock %}
+
+</html>

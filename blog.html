@@ -1,0 +1,133 @@
+{% extends 'powercool_app/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+    {% block title %}
+    Blog
+    {% endblock %}
+  </title>
+</head>
+
+{% block content %}
+
+<body>
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Blog</h2>
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li>Blog</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+            {% if blog %}
+            {% for b in blog %}
+            <article class="entry" data-aos="fade-up">
+
+              <div class="entry-img">
+                <img src="{{ b.blog_img.url }}" alt="{{ b.blog_title }}" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="{% url 'blog_single' b.id %}">{{ b.blog_title }}</a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a
+                      href="{% url 'blog_single' b.id %}">
+                      {{b.poster }}</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a
+                      href="{% url 'blog_single' b.id %}"><time datetime="{{ b.upload_date }}">
+                        {{b.upload_date}}</time></a></li>
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                <div class="read-more">
+                  <a href="{% url 'blog_single' b.id %}">Read </a>
+                </div>
+              </div>
+
+            </article><!-- End blog entry -->
+            {% endfor %}
+            {% endif %}
+
+            {% include "powercool_app/pagination.html" with page=blog %}
+
+          </div><!-- End blog entries list -->
+
+          <div class="col-lg-4">
+
+            <div class="sidebar" data-aos="fade-left">
+
+              <h3 class="sidebar-title">Search</h3>
+              <div class="sidebar-item search-form">
+                <form action="">
+                  <input type="text">
+                  <button type="submit"><i class="icofont-search"></i></button>
+                </form>
+
+              </div><!-- End sidebar search formn-->
+
+              <h3 class="sidebar-title">Categories</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="#"> <span></span></a></li>
+                </ul>
+
+              </div><!-- End sidebar categories-->
+
+              <h3 class="sidebar-title">Recent Posts</h3>
+              <div class="sidebar-item recent-posts">
+                <div class="post-item clearfix">
+                  <img src="" alt="">
+                  <h4><a href=""></a></h4>
+                  <time datetime="2020-01-01"></time>
+                </div>
+              </div><!-- End sidebar recent posts-->
+
+              <h3 class="sidebar-title">Tags</h3>
+              <div class="sidebar-item tags">
+                <ul>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+                  <li><a href="#"></a></li>
+
+                </ul>
+
+              </div><!-- End sidebar tags-->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+</body>
+{% endblock %}
+
+</html>
