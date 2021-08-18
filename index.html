@@ -1,0 +1,393 @@
+{% extends 'powercool_app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+<head>
+	<title>
+		{% block title %}
+		Powercool Systems Services Limited
+		{% endblock %}
+	</title>
+	<script data-ad-client="ca-pub-3419372923726798" async
+		src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+{% block content %}
+
+<body>
+	<!-- ======= Hero Section ======= -->
+	<section id="hero">
+		<div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+			<div class="carousel-inner" role="listbox">
+
+				<!-- Slide 1 -->
+				<div class="carousel-item active"
+					style="background-image: url({% static 'powercool_app/assets/img/slide/ac1.jpg' %});">
+					<div class="carousel-container">
+						<div class="carousel-content animate__animated animate__fadeInUp">
+							<h2>Welcome to <span>Powercool Systems Services Limited</span></h2>
+							<p>Best Customer support and after sales
+								services</p>
+							<p>Dedicated to providing
+								effective electrical and cooling solutions</p>
+							<div class="text-center"><a href="{% url 'profile_view' %}" class="btn-get-started">View
+									Profile</a></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- other Slides  -->
+				{% if carosue %}
+				{% for c in carosue %}
+				<div class="carousel-item" style="background-image: url({{c.image1.url}});">
+					<div class="carousel-container">
+						<div class="carousel-content animate__animated animate__fadeInUp">
+							<h2>{{ c.title1 }}</h2>
+							<p>{{ c.content1 }}</p>
+							<div class="text-center"><a href="{% url 'profile_view' %}" class="btn-get-started">View
+									Profile</a></div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				{% endif %}
+			</div>
+
+			<a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+
+			<a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+				<span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+
+			<ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+		</div>
+	</section><!-- End Hero -->
+
+	<main id="main">
+
+		<!-- ======= About Us Section ======= -->
+		<section id="about-us" class="about-us">
+			<div class="container" data-aos="fade-up">
+
+				<div class="section-title">
+					<h2>About Us</strong></h2>
+				</div>
+
+				<div class="row content">
+					{% if write %}
+					{% for w in write %}
+
+					<div class="col-lg-6 bg-light" data-aos="fade-left">
+						<h4 class="pt-3 bg-dark text-light p-2">{{ w.title }}</h4>
+						<hr>
+						<p>
+							{{ w.content_para1 }}
+						</p>
+						<ul>
+							<li><i class="ri-check-double-line"></i> {{ w.content_para2 }}
+							</li>
+							<li><i class="ri-check-double-line"></i> {{ w.content_para3 }}</li>
+						</ul>
+						<p class="font-italic">
+							We are glad you are here.
+						</p>
+						<hr>
+					</div>
+					<div class="col-lg-6 pt-2" data-aos="fade-left">
+						<div class="bg-white">
+							<div>
+								<div class="text-center" style="background-color: red;">
+									<h6 class="mb-0" style="color: white;font-weight: bold;">Get a Quote</h6>
+								</div>
+								<div class="card bg-light">
+									<form action="#" class="card-body" method="POST">
+										{{ form | crispy }}
+										{% csrf_token %}
+										<button class="btn btn btn-sm py-1 btn-block"
+											style="background-color:red;color: white;">Send
+											Message</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					{% endif %}
+				</div>
+
+			</div>
+		</section><!-- End About Us Section -->
+
+		<!-- ======= Services Section ======= -->
+		<section id="services" class="services section-bg">
+			<div class="container" data-aos="fade-up">
+
+				<div class="section-title">
+					<h2>Services</strong></h2>
+					<p></p>
+				</div>
+
+				<div class="row">
+					{% if service %}
+					{% for s in service %}
+					<div class="col-lg-3 col-md-5 d-flex align-items-stretch mb-2" data-aos="zoom-in"
+						data-aos-delay="100">
+						<div class="icon-box iconbox-blue">
+							<div class="icon">
+								<svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+									<path stroke="none" stroke-width="0" fill="#f5f5f5"
+										d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174">
+									</path>
+								</svg>
+								<i class="bx bxl-dribbble"></i>
+							</div>
+							<h4><a href="">{{ s.title }}</a></h4>
+							<span>{{ s.title_extension }}</span>
+							<p>{{ s.content_small }}</p>
+							<p><a href="{% url 'service_detail' s.id %}" class="btn-custom text-primary">Read more</a>
+							</p>
+						</div>
+					</div>
+					{% endfor %}
+					{% endif %}
+				</div>
+
+			</div>
+		</section><!-- End Services Section -->
+
+		<!-- ======= Portfolio Section ======= -->
+		<section id="portfolio" class="portfolio">
+			<div class="container">
+
+				<div class="section-title" data-aos="fade-up">
+					<h2>Our Projects</h2>
+					<p>Move your cursor over each image below to see details of projects. Thank you</p>
+				</div>
+
+				<div class="row" data-aos="fade-up">
+					<div class="col-lg-12 d-flex justify-content-center">
+						<ul id="portfolio-flters">
+							<li data-filter="*" class="filter-active">All</li>
+							<li data-filter=".filter-power">Power</li>
+							<li data-filter=".filter-cool">Cooling</li>
+							<li data-filter=".filter-data">Data center</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row portfolio-container" data-aos="fade-up">
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-cool filter-data">
+						<img src="{% static 'powercool_app/images/work1.jpg' %}" class="img-fluid" alt="">
+						<div class="portfolio-info">
+							<h4>NESTLE NIGERIA PLC 22-24, Industrial Avenue
+								Ilupeju Lagos</h4>
+							<p>
+							<ul>
+								<li>Supply of precision A/C</li>
+								<li>Maintenance of precision cooling and comfort cooling Air-conditioners</li>
+							</ul>
+							</p>
+							<a href="{% static 'powercool_app/images/work1.jpg' %}" data-gall="portfolioGallery"
+								class="venobox preview-link" title="App 1"></a>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-power filter-cool filter-data">
+						<img src="{% static 'powercool_app/images/work2.jpg' %}" class="img-fluid" alt="">
+						<div class="portfolio-info">
+							<h4>CENTRAL BANK OF LIBERIA Warren and Carey
+								Street Monrovia. Liberia</h4>
+							<p>
+							<ul>
+								<li>Supply and installation of Liebert Precision cooling</li>
+								<li>Supply and installation of AVR</li>
+								<li>Installation of UPS</li>
+								<li>Installation of Power Panel( LV)</li>
+							</ul>
+							</p>
+							<a href="{% static 'powercool_app/images/work2.jpg' %}" data-gall="portfolioGallery"
+								class="venobox preview-link" title="Web 3"></a>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-power filter-cool filter-data">
+						<img src="{% static 'powercool_app/images/works3.jpeg' %}" class="img-fluid" alt="">
+						<div class="portfolio-info">
+							<h4>Resourcery PLC 16-18, Adeola Hopewell street
+								Victoria Island Lagos</h4>
+							<p>
+							<ul>
+								<li>Supply of Liebert precision cooling</li>
+								<li>Supply of AVR</li>
+								<li>Installation of UPS</li>
+								<li>Installation of power</li>
+							</ul>
+							</p>
+							<a href="{% static 'powercool_app/images/works3.jpeg' %}" data-gall="portfolioGallery"
+								class="venobox preview-link" title="App 2"></a>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-power">
+						<img src="{% static 'powercool_app/images/work4.jpg' %}" class="img-fluid" alt="">
+						<div class="portfolio-info">
+							<h4>NPDC Sapele road Benin</h4>
+							<p>
+							<ul>
+								<li>Installation of UPS</li>
+								<li>Cable structuring</li>
+								<li>Installation of LV panel</li>
+							</ul>
+							</p>
+							<a href="{% static 'powercool_app/images/work4.jpg' %}" data-gall="portfolioGallery"
+								class="venobox preview-link" title="Card 2"></a>
+
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-cool">
+						<img src="{% static 'powercool_app/images/work5.jpg' %}" class="img-fluid" alt="">
+						<div class="portfolio-info">
+							<h4>NIMC Minna,Niger state</h4>
+							<p>
+							<ul>
+								<li>Installation of precision cooling</li>
+							</ul>
+							</p>
+							<a href="{% static 'powercool_app/images/work5.jpg' %}" data-gall="portfolioGallery"
+								class="venobox preview-link" title="Web 2"></a>
+
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-data">
+						<img src="{% static 'powercool_app/images/work6.jpg' %}" class="img-fluid" alt="">
+						<div class="portfolio-info">
+							<h4>DIMENSION DATA 2nd Floor, FABAC Center 3B
+								Ligali Ayorinde Street Victoria Island Lagos.</h4>
+							<p>
+							<ul>
+								<li>Supply and installation of Dehumidifiers</li>
+							</ul>
+							</p>
+							<a href="{% static 'powercool_app/images/work6.jpg' %}" data-gall="portfolioGallery"
+								class="venobox preview-link" title="App 3"></a>
+
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-cool">
+						<img src="{% static 'powercool_app/images/work7.jpg' %}" class="img-fluid" alt="">
+						<div class="portfolio-info">
+							<h4>Resourcery PLC 16-18, Adeola Hopewell street
+								Victoria Island Lagos.</h4>
+							<p>
+							<ul>
+								<li>Installation of Data-Mate precision Air-condition for Globalcom
+									Communication</li>
+							</ul>
+							</p>
+							<a href="{% static 'powercool_app/images/work7.jpg' %}" data-gall="portfolioGallery"
+								class="venobox preview-link" title="Card 1"></a>
+
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 portfolio-item filter-data">
+						<img src="{% static 'powercool_app/images/work8.jpg' %}" class="img-fluid" alt="">
+						<div class="portfolio-info">
+							<h4>Cable structuring</h4>
+							<p>Cable structuring</p>
+							<a href="{% static 'powercool_app/images/work8.jpg' %}" data-gall="portfolioGallery"
+								class="venobox preview-link" title="Card 3"></a>
+
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+		</section><!-- End Portfolio Section -->
+
+		<!-- ======= Our Clients Section ======= -->
+		<section id="clients" class="clients">
+			<div class="container" data-aos="fade-up">
+
+				<div class="section-title">
+					<h2>Strategic Partners</h2>
+				</div>
+
+				<div class="row no-gutters clients-wrap clearfix" data-aos="fade-up">
+
+					<div class="col-lg-3 col-md-4 col-6">
+						<div class="client-logo">
+							<img src="{% static 'powercool_app/assets/img/clients/emerson.png' %}" class="img-fluid"
+								alt="">
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-6">
+						<div class="client-logo">
+							<img src="{% static 'powercool_app/assets/img/clients/liebert.png' %}" class="img-fluid"
+								alt="">
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-6">
+						<div class="client-logo">
+							<img src="{% static 'powercool_app/assets/img/clients/ortea.png' %}" class="img-fluid"
+								alt="">
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-6">
+						<div class="client-logo">
+							<img src="{% static 'powercool_app/assets/img/clients/vertv1.png' %}" class="img-fluid"
+								alt="">
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-6">
+						<div class="client-logo">
+							<img src="{% static 'powercool_app/assets/img/clients/solar_edge.png' %}" class="img-fluid"
+								alt="">
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-6">
+						<div class="client-logo">
+							<img src="{% static 'powercool_app/assets/img/clients/gamatronics.png' %}" class="img-fluid"
+								alt="">
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-6">
+						<div class="client-logo">
+							<img src="{% static 'powercool_app/assets/img/clients/canovate1.jpg' %}" class="img-fluid"
+								alt="">
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-4 col-6">
+						<div class="client-logo">
+							<img src="{% static 'powercool_app/assets/img/clients/apc-logo.jpg' %}" class="img-fluid"
+								alt="">
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</section><!-- End Our Clients Section -->
+
+	</main><!-- End #main -->
+
+</body>
+{% endblock %}

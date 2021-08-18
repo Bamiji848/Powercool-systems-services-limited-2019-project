@@ -1,0 +1,50 @@
+{% extends 'powercool_app/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<title>
+    {% block title %}
+    {% if key %}
+    {{ key.name }}
+    {% endif %}
+    {% endblock %}
+</title>
+
+{% block content %}
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/5f0466b6223d045fcb7b779b/default';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
+
+<body>
+    <!-- <div class="wrap">		 -->
+    <section>
+        <div class="container pt-5">
+            {% if key %}
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 order-lg-last ftco-animate">
+                    <p>
+                        <img src="{{ key.images.url }}" alt="" class="img-fluid" style="height:310px;width: 70%;">
+                    </p>
+                    <h2 class="mb-3 about-author" style="color: navy;font-weight: bold;">{{ key.name }}</h2>
+
+                    <p style="line-height: 25px;color: navy;">{{ key.content }}</p>
+                    {% endif %}
+                    <span><a href="{% url 'services' %}" style="font-weight: bold;color: red;">--Previous
+                            Page</a></span>
+
+                </div>
+    </section>
+</body>
+{% endblock %}

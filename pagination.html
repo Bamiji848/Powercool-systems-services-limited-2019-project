@@ -1,0 +1,13 @@
+<div class="blog-pagination">
+    <ul class="justify-content-center">
+        {% if page.has_previous %}
+        <li class="active"><a href="?page={{ page.previous_page_number }}">
+                <i class="icofont-rounded-left"></i></a></li>
+        {% endif %}
+        <li class="active"><a href="#">
+                Page {{ page.number }} of {{ page.paginator.num_pages }}</a></li>
+        {% if page.has_next %}
+        <li><a href="?page={{ page.next_page_number }}"><i class="icofont-rounded-right"></i></a></li>
+        {% endif %}
+    </ul>
+</div>
