@@ -1,0 +1,142 @@
+{% extends 'powercool_app/base.html' %}
+{% load static %}
+{% load fontawesome %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% fontawesome_stylesheet %}
+  <title>
+    {% block title %}
+    Services
+    {% endblock %}
+  </title>
+</head>
+{% block content %}
+
+<body>
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Services</h2>
+        <ol>
+          <li><a href="{% url 'index' %}">Home</a></li>
+          <li>Services</li>
+        </ol>
+      </div>
+
+    </div>
+  </section>
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Our Services</strong></h2>
+        <p></p>
+      </div>
+
+      <div class="row">
+        {% if service %}
+        {% for s in service %}
+        <div class="col-lg-3 col-md-5 d-flex align-items-stretch mb-2" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon-box iconbox-blue">
+            <div class="icon">
+              <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <path stroke="none" stroke-width="0" fill="#f5f5f5"
+                  d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174">
+                </path>
+              </svg>
+              <i class="bx bxl-dribbble"></i>
+            </div>
+            <h4><a href="">{{ s.title }}</a></h4>
+            <span>{{ s.title_extension }}</span>
+            <p>{{ s.icon.as_html }}{{ s.content_small }}</p>
+            <p><a href="{% url 'service_detail' s.id %}" class="btn-custom text-primary">Read more</a>
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+
+    </div>
+  </section><!-- End Services Section -->
+  <!-- ======= Features Section ======= -->
+  <section id="features" class="features">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Features</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-4 card">
+          <div class="icon-box">
+            <i class="ri-store-line" style="color: #ffbb2c;"></i>
+            <h3><a href="">Procurement</a></h3>
+          </div>
+          <div class="card-body">
+            <p>We have vendors both locally and
+              internationally that assist with the
+              procurement of materials for site
+              preparation, solar systems, data center
+              equipment, power and earthing system,
+              automatic fire defense system, BTS
+              alarm/equipment status monitoring
+              system, environment conditioning for
+              industrial and domestic use, DC power
+              system and precision cooling for data
+              centre. Our vendors include LIEBERT,
+              MGE, SANTAK, ARTRONIC, SOLAR EDGE,
+              GAMATRONIC, CANOVATE, STAVOL,
+              ORTEA SAVO, LG,
+              PANASONIC, SAMSUNG, MEDIA, and
+              HAIER THERMOCOOL etc.</p>
+
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 mt-4 mt-md-0 card">
+          <div class="icon-box">
+            <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
+            <h3><a href="">Maintenance</a></h3>
+          </div>
+          <div class="card-body">
+            <p>Our clients benefit from our timely
+              schedule for both comprehensive and
+              preventive type maintenance which
+              enable optimization of system
+              performance.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 mt-4 mt-md-0 card">
+          <div class="icon-box">
+            <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
+            <h3><a href="">Installation and Repair</a></h3>
+          </div>
+          <div class="card-body">
+            <p>We have a solid team and good network of highly trained technically-experienced engineers to
+              provide first-class installation and repair of: Uninterruptible Power Supplies(UPS), Inverters for
+              industrial and domestic use, Stabilizers, Surge suppressors and lightening arrestors, Magnetic
+              Synthesizers, Mains Monitoring and Control Panel, Distribution Transformers and Overhead lines
+              construction, Structured Cabling for Power and Provision of Clean Earthing Systems, Computer
+              Suite Preparation (Environment Conditioning), Fire-rated partitioning, Fire-rated wall cladding,
+              Fire- rated false ceiling, Raised Flooring System, Access Control for Doors, Precision Packaged Air
+              Conditioning System capable of controlling temperature humidity and dust levels, Domestic Air
+              Condition, Automatic Fire Defense System based on FM 200 Gas, BTS Alarm/Equipment Status
+              Monitoring System, Data Center Environment Monitoring System, DC Power Systems, Solar Power,
+              Consultancy and ad-hoc Services, Electrical Audit of premises, After Sales Service on all products,
+              Precision cooling for Data Center and general cooling.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Features Section -->
+
+</body>
+{% endblock %}
+
+</html>

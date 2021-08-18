@@ -1,0 +1,78 @@
+{% extends 'powercool_app/base.html' %}
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        {% block title %}
+        {% if categories %}{{ categories.name }} {% else %} Products {% endif %}
+        {% endblock %}
+    </title>
+</head>
+{% block content %}
+
+<body>
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Shop</h2>
+                    <ol>
+                        <li class="active"><a href="{% url 'powercool_app:shop' %}">All</a></li>
+                        {% for c in categories %}
+
+                        <li class="active">
+                            <a href="{{ c.get_absolute_url }}" class="text-light text-capitalize">{{ c.name }}</a>
+                        </li>
+                        {% endfor %}
+
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                    </ol>
+                </div>
+
+            </div>
+        </section><!-- End Breadcrumbs -->
+
+        <!-- ======= Pricing Section ======= -->
+        <section id="pricing" class="pricing">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row">
+                    {% for product in products %}
+                    <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+                        <div class="box featured">
+                            <h3>{{ product.category }}</h3>
+                            <ul>
+                                <li><img src="{{product.product_img1.url}}" alt="product image"
+                                        style="height: 200px;width: 200px;"></li>
+                                <li><a href="{{ product.get_absolute_url }}" class=""
+                                        style="text-transform: capitalize;font-size: 11px;color:navy;font-weight:bold;">{{product.product_name1}}</a>
+                                </li>
+                            </ul>
+                            <h6 class="" style="color:black;font-weight:bold;">
+                                &#8358;{{product.product_price1|floatformat:0|intcomma}}
+                            </h6>
+                            <div class="btn-wrap">
+                                <a href="https://wa.me/2349037550226?text=I'm%20interested%20in%20buying {{product.product_name1}} %20from%20powercool%20systems services limited"
+                                    target="_blank;" class="btn-buy">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section><!-- End Pricing Section -->
+
+
+    </main><!-- End #main -->
+
+</body>
+{% endblock %}
+
+</html>

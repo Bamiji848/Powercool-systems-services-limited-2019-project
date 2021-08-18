@@ -1,0 +1,52 @@
+{% extends 'powercool_app/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        {% block title %}
+        Services
+        {% endblock %}
+    </title>
+
+</head>
+{% block content %}
+
+<body>
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Services</h2>
+                <ol>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+    <section>
+        <div class="container pt-2">
+            {% if key %}
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 order-lg-last ftco-animate">
+                    <p>
+                        <img src="{{ key.images.url }}" alt="image illustrating service" class="img-fluid"
+                            style="height:200px;width: auto;">
+                    </p>
+                    <h4 class="mb-3 about-author bg-dark text-light p-2">{{ key.title }}</h4>
+                    <p>{{ key.title_extension }}</p>
+                    <div style="line-height: 25px;" class="bg-light card">
+                        <p class="card-body">{{ key.content }}</p>
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+{% endblock %}
